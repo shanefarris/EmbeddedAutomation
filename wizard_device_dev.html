@@ -1,0 +1,334 @@
+<style>
+    input[type="text"] {
+        width: 300px;
+    }
+</style>
+<form action="/config_save" method="post">
+    <input type="hidden" id="deviceType_hidden" value="{0}" />
+    <input type="hidden" id="ssid_hidden" value="{1}" />
+    <input type="hidden" id="phone_hidden" value="{4}" />
+    <input type="hidden" id="maxCheck_hidden" value="{5}" />
+    <input type="hidden" id="minCheck_hidden" value="{6}" />
+    <input type="hidden" id="sendEmail_hidden" value="{7}" />
+    <input type="hidden" id="sendSms_hidden" value="{8}" />
+    <input type="hidden" id="maxRange_hidden" value="{9}" />
+    <input type="hidden" id="minRange_hidden" value="{10}" />
+    <input type="hidden" id="deviceName_hidden" value="{11}" />
+    <input type="hidden" id="deviceInterval_hidden" value="{12}" />
+    <input type="hidden" id="saveIntervalMinute_hidden" value="{13}" />
+    <input type="hidden" id="catalogHost_hidden" value="{17}" />
+    <input type="hidden" id="stateHost_hidden" value="{19}" />
+    <!-- Email Settings-->
+    <input type="hidden" id="toEmail_hidden" value="{3}" />
+    <input type="hidden" id="fromEmail_hidden" value="{14}" />
+    <input type="hidden" id="emailHost_hidden" value="{15}" />
+    <input type="hidden" id="emailPort_hidden" value="{16}" />
+
+
+    <fieldset style="width:500px;">
+        <legend>Device Settings:</legend>
+        <table>
+            <tr>
+                <td> Device Type: </td>
+                <td>
+                    <select name="ddlDeviceType" id="ddlDeviceType" onchange="onDeviceChange()">
+                        <option value="temp">Temperature (Dry, DS18B20)</option>
+                        <option value="temp_humidity">Temperature & Humidity (DHT11)</option>
+                        <option value="water_level">Water Level</option>
+                        <option value="water_flow">Water Flow</option>
+                        <option value="flood">Flood Alert</option>
+                        <option value="water_temp">Water Temperature (Waterproof)</option>
+                        <option value="relay_single">Relay (Single)</option>
+                        <option value="HCSR04">Water Level (Ultra Sonic HCSR04)</option>
+                        <option value="motion">Motion</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Device Name: </td>
+                <td> <input type="text" id="txtDeviceName" value=""></td>
+            </tr>
+            <tr>
+                <td>Alert if Max Exceeded?</td>
+                <td> <input type="checkbox" id="chkNotifyMax" value=""></td>
+            </tr>
+            <tr>
+                <td> Alert if Min Exceeded?</td>
+                <td> <input type="checkbox" id="chkNotifyMin" value=""></td>
+            </tr>
+            <tr>
+                <td> Send Email?</td>
+                <td> <input type="checkbox" id="chkSendEmail" value=""></td>
+            </tr>
+            <tr>
+                <td> Send SMS?</td>
+                <td> <input type="checkbox" id="chkSendSms" value=""></td>
+            </tr>
+            <tr>
+                <td> Max Range:</td>
+                <td> <input type="text" id="txtMaxRange" value="" style="width: 50px;"></td>
+            </tr>
+            <tr>
+                <td>Min Range:</td>
+                <td> <input type="text" id="txtMinRange" value="" style="width: 50px;"></td>
+            </tr>
+            <tr>
+                <td> Sensor Reading Interval(ms): </td>
+                <td> <input type="text" id="txtDeviceInterval" value="" style="width: 50px;"></td>
+            </tr>
+            <tr>
+                <td> Save to Log Interval(minutes): </td>
+                <td> <input type="text" id="txtSaveIntervalMinute" value="" style="width: 50px;"> </td>
+            </tr>
+            <tr>
+                <td> Device Register Host: </td>
+                <td> <input type="text" id="txtCatalogHost" value=""> </td>
+            </tr>
+            <tr>
+                <td> Device State Host (Not Done): </td>
+                <td> <input type="text" id="txtStateHost" value=""> </td>
+            </tr>
+        </table>
+        <p>
+            Standard options for the sensor used on this device.  Usually you don't want
+            to change the "Sensor Reading Interval", keeping it at its default setting is
+            adviced.
+        </p>
+    </fieldset>
+
+    <fieldset style="width:500px;">
+        <legend>Connection to local network (Optional):</legend>
+        <table>
+            <tr>
+                <td> SSID: </td>
+                <td> <input type="text" id="txtSsid" value=""> </td>
+            </tr>
+            <tr>
+                <td> Client Password:</td>
+                <td><input type="password" id="txtPsk" value=""></td>
+            </tr>
+            <tr>
+                <td>AP Password:</td>
+                <td><input type="password" id="txtstandalonePassword" value=""></td>
+            </tr>
+        </table>
+        <p>
+            This information is optional.  Fill out the SSID (Wifi name) and the password if you want the device to connect
+            to a master device.  Leave these fields empty if you want this to be a stand alone device.  This is optional.
+        </p>
+        <p>
+            If this is a stand alond device, then it would be a good idea to enter in information for email alerts, and/or SMS
+            information as well.
+        </p>
+    </fieldset>
+
+    <fieldset style="width:500px;">
+        <legend>Email Settings (Optional):</legend>
+
+        <div id="divGenericEmail">
+            <table>
+                <tr>
+                    <td>Email Host:</td>
+                    <td><input type="text" id="txtEmailHost" value=""></td>
+                </tr>
+                <tr>
+                    <td>Host Port:</td>
+                    <td><input type="text" id="txtEmailPort" value=""></td>
+                </tr>
+                <tr>
+                    <td>To Email (send notification to this address):</td>
+                    <td><input type="text" id="txtToEmail" value=""></td>
+                </tr>
+                <tr>
+                    <td>From Email:</td>
+                    <td><input type="text" id="txtFromEmail" value=""></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="txtEmailPassword" value=""></td>
+                </tr>
+            </table>
+            <p>The "From" email address and password are for most email services, this is optional.</p>
+        </div>
+
+    </fieldset>
+
+    <fieldset style="width:500px;">
+        <legend>SMS Options (Optional):</legend>
+        <table>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="text" id="txtSmsNumber" value=""></td>
+            </tr>
+        </table>
+        <p>The phone number to send SMS messages, this is optional.</p>
+    </fieldset>
+    <br /><br />
+    <input type="button" value="Save" onclick="submitForm();">
+    <br><br>
+    <input type="button" value="Cancel" onclick="location.href='/index';">
+</form>
+
+<br />
+<br />
+<div>
+    <ul>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/graph">Graph with saved values</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    function onDeviceChange() {
+        var d = document.getElementById('ddlDeviceType');
+		var deviceType = d.value;
+
+		if(d.value == document.getElementById('deviceType_hidden').value) {
+			return;
+		}
+
+		document.getElementById('txtSaveIntervalMinute').value = '6000';
+		document.getElementById('txtDeviceInterval').value = '1000';
+
+        var max = document.getElementById('txtMaxRange');
+        var min = document.getElementById('txtMinRange');
+        var name = document.getElementById('txtDeviceName');
+        var checkMax = document.getElementById('chkNotifyMax');
+        var checkMin = document.getElementById('chkNotifyMin');
+        var sendEmail = document.getElementById('chkSendEmail');
+        var sendSms = document.getElementById('chkSendSms');
+
+        checkMax.value = true;
+        checkMin.value = true;
+
+        if (deviceType == 'water_level' || deviceType == 'flood') {
+            max.value = '1025';
+            min.value = '700';
+            name.value = 'Flood';
+            checkMax.checked = false;
+            checkMin.checked = true;
+		}
+        else if (deviceType == 'water_temp' || deviceType == 'temp_humidity' || deviceType == 'temp') {
+            max.value = '83';
+            min.value = '70';
+            name.value = 'Water Temp';
+			document.getElementById('txtDeviceInterval').value = '10000';
+		}
+        else if (deviceType == 'HCSR04') {
+            max.value = '50';
+            min.value = '10';
+            name.value = 'LevelSensor';
+            sendEmail.checked = false;
+            sendSms.checked = false;
+        }
+        else if (deviceType == 'relay_single' || deviceType == 'motion') {
+            checkMax.value = false;
+            checkMin.value = false;
+            max.value = '0';
+            min.value = '0';
+            name.value = 'Relay';
+            sendEmail.checked = false;
+            sendSms.checked = false;
+        }
+	}
+
+	function submitForm() {
+		if (confirm('Save changes?')) {
+			var url = '/config_save';
+			var params = '?ssid=' + document.getElementById('txtSsid').value;
+            params += '&psk=' + document.getElementById('txtPsk').value;
+            params += '&standalonePassword=' + document.getElementById('txtstandalonePassword').value;
+
+
+            params += '&phone=' + document.getElementById('txtSmsNumber').value;
+            params += '&catalogHost=' + document.getElementById('txtCatalogHost').value;
+            params += '&stateHost=' + document.getElementById('txtStateHost').value;
+
+            params += '&emailPort=' + document.getElementById('txtEmailPortGmail').value;
+            params += '&emailHost=' + document.getElementById('txtEmailHostGmail').value;
+            params += '&toEmail=' + document.getElementById('txtToEmail').value;
+            params += '&fromEmail=' + document.getElementById('txtFromEmail').value;
+
+			if (document.getElementById('chkNotifyMax').checked) {
+				params += '&maxCheck=1';
+			}
+			else {
+				params += '&maxCheck=0';
+			}
+
+			if (document.getElementById('chkNotifyMin').checked) {
+				params += '&minCheck=1';
+			}
+			else {
+				params += '&minCheck=0';
+			}
+
+			if (document.getElementById('chkSendEmail').checked) {
+				params += '&sendEmail=1';
+			}
+			else {
+				params += '&sendEmail=0';
+			}
+
+			if (document.getElementById('chkSendSms').checked) {
+				params += '&sendSms=1';
+			}
+			else {
+				params += '&sendSms=0';
+			}
+
+			params += '&maxRange=' + document.getElementById('txtMaxRange').value;
+			params += '&minRange=' + document.getElementById('txtMinRange').value;
+			params += '&deviceName=' + document.getElementById('txtDeviceName').value;
+			params += '&deviceInterval=' + document.getElementById('txtDeviceInterval').value;
+			params += '&saveIntervalMinute=' + document.getElementById('txtSaveIntervalMinute').value;
+			params += '&deviceType=' + document.getElementById('ddlDeviceType').value;
+			location.replace(url + params);
+		}
+	}
+
+    function populate() {
+        //alert(document.getElementById('txtSsid').value);
+        document.getElementById('txtSsid').value = document.getElementById('ssid_hidden').value;
+        document.getElementById('txtSmsNumber').value = document.getElementById('phone_hidden').value;
+        document.getElementById('txtCatalogHost').value = document.getElementById('catalogHost_hidden').value;
+        document.getElementById('txtStateHost').value = document.getElementById('stateHost_hidden').value;
+
+        if (document.getElementById('maxCheck_hidden').value == '1') {
+            document.getElementById('chkNotifyMax').checked = true;
+        }
+
+        if (document.getElementById('minCheck_hidden').value == '1') {
+            document.getElementById('chkNotifyMin').checked = true;
+        }
+
+        if (document.getElementById('sendEmail_hidden').value == '1') {
+            document.getElementById('chkSendEmail').checked = true;
+        }
+
+        if (document.getElementById('sendSms_hidden').value == '1') {
+            document.getElementById('chkSendSms').checked = true;
+        }
+
+        document.getElementById('txtMaxRange').value = document.getElementById('maxRange_hidden').value;
+        document.getElementById('txtMinRange').value = document.getElementById('minRange_hidden').value;
+        document.getElementById('txtDeviceName').value = document.getElementById('deviceName_hidden').value;
+        document.getElementById('txtDeviceInterval').value = document.getElementById('deviceInterval_hidden').value;
+        document.getElementById('txtSaveIntervalMinute').value = document.getElementById('saveIntervalMinute_hidden').value;
+		document.getElementById('txtFromUser').value = document.getElementById('fromEmail_hidden').value;
+
+		// Populate the device type dropdown
+		var temp = document.getElementById('deviceType_hidden').value;
+		var deviceType = document.getElementById('ddlDeviceType');
+
+		for(var i, j = 0; i = deviceType.options[j]; j++) {
+			if(i.value == temp) {
+				deviceType.selectedIndex = j;
+				break;
+			}
+        }
+    }
+
+    populate();
+
+</script>

@@ -1,0 +1,134 @@
+ssid:SSID
+psk:PASSWORD
+deviceType:water_Temp
+phone:PHONE_NUM
+maxCheck:1
+minCheck:1
+sendEmail:1
+sendSms:1
+maxRange:1025
+minRange:700
+deviceName:Water Level
+deviceInterval:1000
+saveIntervalMinute:6000
+toEmail:toEmail@email.com
+fromEmail:fromEmail@email.com
+emailPassword:EMAIL_PASSWORD
+emailHost:HOST
+emailPort:PORT
+standalonePassword:standalonePassword
+catalogHost:optional_example.com/Catalog/api/DeviceUpdate
+version:0.1
+stateHost:optional_example.com/Catalog/api/state
+
+deviceType:water_level
+maxRange:1025
+minRange:700
+deviceName:Water Level
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:water_temp
+maxRange:83
+minRange:70
+deviceName:Water Temp
+deviceInterval:5000
+saveIntervalMinute:6000
+
+deviceType:temp_humidity
+maxRange:80
+minRange:70
+deviceName:Temp and Humidity
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:temp
+maxRange:80
+minRange:70
+deviceName:Temp
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:flood
+maxRange:300
+minRange:0
+deviceName:Flood
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:flood_simple
+maxRange:1
+minRange:0
+deviceName:Flood
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:HCSR04
+maxRange:50
+minRange:10
+deviceName:Water Level
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:relay_single
+maxRange:0
+minRange:0
+deviceName:Relay
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:motion
+maxRange:0
+minRange:0
+deviceName:MotionSensor
+deviceInterval:1000
+saveIntervalMinute:6000
+
+deviceType:float
+maxRange:0
+minRange:0
+deviceName:WaterLevel
+deviceInterval:1000
+saveIntervalMinute:6000
+
+==================== Public: =====================================
+ssid:
+psk:
+deviceType:water_temp
+phone:
+maxCheck:0
+minCheck:0
+sendEmail:1
+sendSms:1
+maxRange:1000
+minRange:100
+deviceName:DeviceName
+deviceInterval:1000
+saveIntervalMinute:60
+toEmail:
+fromEmail:
+emailPassword:
+emailHost:
+emailPort:
+standalonePassword:password
+
+
+===================================================================
+ssid: Used if connected to network, blank if running as AP.
+psk: Password used if connected to network, blank if running as AP.
+deviceType: Type of device in enum DeviceType in DeviceManager.h
+phone: SMS send TO.
+maxCheck: 1 if we check for max range.
+minCheck: 1 if we check for min range.
+sendEmail: 1 if we send email notification.
+sendSms: 1 if we send SMS notification.
+maxRange: Max range boundary.
+minRange: Min range boundary.
+deviceName: Friendly device name.
+deviceInterval: How often should we check the device (default is 3000) (in ms).
+saveIntervalMinute: How often do we save to the log (default is 60) (in seconds).
+toEmail: Email send TO.
+fromEmail: From email address that will be used to log into email account.
+emailPassword: Plain password used in the email account.
+emailHost: Email provider.
+emailPort: Email provider port (default is 465).

@@ -1,0 +1,107 @@
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: large;
+        }
+
+        .text {
+            color: #0E082C;
+            font-size: large;
+        }
+
+        div {
+            padding:10px;
+            border: 2px solid;
+            border-radius: 5px; 
+            border-color: #0E082C;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>
+            <font class="text">
+                Device Name: {0}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Device Type: {1}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Current Reading: {2}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Max Range: {3}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Min Range: {4}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Firmware Version: {5}
+            </font>
+        </p>
+
+        <p>
+            {6}
+        </p>
+
+        <p>
+            <font class="text">
+                Build: {7}
+            </font>
+        </p>
+
+        <p>
+            <font class="text">
+                Device Status: <font style="color:green;">OK</font>
+            </font>
+        </p>
+    </div>
+
+    <br />
+    <br />
+
+    <div>
+        <p>
+            <a href="/config">Configuration</a>
+        </p>
+        <br />
+
+        <p>
+            <a href="/update">Update firmware</a>
+        </p>
+        <br />
+
+        <p>
+            <a href="/reset">Reboot device</a>
+        </p>
+        <br />
+
+    </div>
+
+
+</body>
+</html>

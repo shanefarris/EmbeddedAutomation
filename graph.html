@@ -1,0 +1,117 @@
+<style>
+.barcontainer {
+  position: relative;
+  border: 3px solid black;
+  border-radius: 5px 5px 0 0;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 25vw;
+  max-height: 100vw;
+  
+  z-index: 1;
+}
+
+.barcontainerheader {
+  display: inline;
+  position: absolute;
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background: #2558aa;
+  border-bottom: 3px solid black;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 0 black;
+  z-index: 0;
+}
+
+.bar {
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  border: 1px solid black;
+  border-radius: 6px 6px 0 0;
+  background: #2558aa;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 0 black;
+  box-shadow: 4px 0 8px #888;
+}
+
+.barlabel {
+  position: absolute;
+  border-top: 2px solid black;
+  background: #888;
+  bottom: 0;
+  width: 100%;
+  text-shadow: 1px 1px 0px black;
+  color: white;
+}
+
+</style>
+
+<div id="divContainer" class='barcontainer'>
+
+  <div class='barcontainerheader'>
+    Temperature Trends
+  </div>
+  
+</div>
+
+<div id="divList">
+	<ul id="ulList">
+	
+	</ul>
+  
+</div>
+
+</br>
+</br>
+<div>
+	<ul>
+		<li><a href="/index">Home</a></li>
+		<li><a href="/config">Configuration</a></li>
+	</ul>
+</div>
+
+<script>
+
+var dict = [];
+{0}
+
+for (var key in dict) {
+
+	var divBar = document.createElement('div');
+	divBar.id = 'bar' + key;
+	divBar.className = 'bar';
+	divBar.style = 'height:' + dict[key].value + '%; left:' + (key * 6) + '%';
+
+	var spanTitle = document.createElement('span');
+	spanTitle.id = 'bar' + key + 'title';
+	spanTitle.textContent = dict[key].value;
+	divBar.appendChild(spanTitle);
+
+	var divLabel = document.createElement('div');
+	divLabel.id = 'bar' + key + 'label';
+	divLabel.className = 'barlabel';
+
+	var spanDate = document.createElement('span');
+	spanDate.id = 'bar' + key + 'date';
+	spanDate.textContent = dict[key].key;
+	divLabel.appendChild(spanDate);
+
+	
+	divBar.appendChild(divLabel);
+	document.getElementById('divContainer').appendChild(divBar);
+	
+	// List below
+	var item = document.createElement('li');
+	var spanText = document.createElement('span');
+	spanText.textContent = dict[key].value + "    " + dict[key].key;
+	item.appendChild(spanText);
+
+	document.getElementById('ulList').appendChild(item);
+}
+
+</script>

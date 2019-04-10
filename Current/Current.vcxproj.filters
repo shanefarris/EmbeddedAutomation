@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Devices">
+      <UniqueIdentifier>{462b02ca-4639-4e63-befc-691c0ba9c69f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{ee641f70-def0-430d-85a0-51df2b641fa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ExpansionModules">
+      <UniqueIdentifier>{77f8a528-e118-49e5-a3c3-023ea32027cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tasks">
+      <UniqueIdentifier>{d460498c-931a-485a-b206-c8f274865731}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Configuration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DeviceLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Gsender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NasWebServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OneWire.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WifiConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Analog.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DallasTemperature.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dht11.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DS18B20.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HCSR04.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RelaySingle.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DeviceManager.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Dummy.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HttpClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CommandManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OledExpansionModule.cpp">
+      <Filter>Source Files\ExpansionModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DeviceOnOffTask.cpp">
+      <Filter>Source Files\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Base64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Flood.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Bool.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Motion501.cpp">
+      <Filter>Source Files\Devices</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CommandManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Configuration.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DeviceLog.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Gsender.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HttpClient.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NasEngine.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NasWebServer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleTimer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WifiConnection.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Analog.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DallasTemperature.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DeviceManager.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dht11.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DS18B20.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Dummy.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HCSR04.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IDevice.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OneWire.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RelaySingle.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OledExpansionModule.h">
+      <Filter>Source Files\ExpansionModules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ITask.h">
+      <Filter>Source Files\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DeviceOnOffTask.h">
+      <Filter>Source Files\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Base64.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Flood.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Bool.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Motion501.h">
+      <Filter>Source Files\Devices</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\config.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\data\config">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\data\index.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\config_dev.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\ESP8266_Current.ino">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\index_dev.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\tasks_dev.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\tasks_dev.html" />
+    <None Include="..\data\Manual.html">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="..\config_public.html" />
+    <None Include="..\wizard_device_dev.html">
+      <Filter>Data</Filter>
+    </None>
+  </ItemGroup>
+</Project>

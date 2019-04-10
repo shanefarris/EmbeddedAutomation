@@ -1,0 +1,114 @@
+<style>
+    input[type="text"] {
+        width: 300px;
+    }
+</style>
+<form action="/tasks_save" method="post">
+    <input type="hidden" id="deviceType_hidden" value="{0}" />
+
+    <fieldset style="width:500px;">
+        <legend>Create New Task:</legend>
+        <table>
+            <tr>
+                <td>Event:</td>
+                <td>
+                    <select name="ddlEvent" id="ddlEvent" onchange="onEventChange()">
+                        <option value="0">-- Select Event --</option>
+                        <option value="1">Minimum Range</option>
+                        <option value="2">Maximum Range</option>
+                        <option value="3">Device Start</option>
+                        <option value="4">Device Loop</option>
+                        <option value="5">Device Read Success</option>
+                        <option value="6">Device Read Fail</option>
+                        <option value="7">Firmware Update Success</option>
+                        <option value="8">Firmware Update Failed</option>
+                        <option value="9">Data Update Success</option>
+                        <option value="10">Data Update Failed</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Command Type:</td>
+                <td>
+                    <select name="ddlCommandType" id="ddlCommandType" onchange="onCommandChange()">
+                        <option value="0">-- Select Command Type --</option>
+                        <option value="1">Turn This Device On</option>
+                        <option value="2">Turn This Device Off</option>
+                        <option value="3">Reboot This Device</option>
+                        <option value="4">Turn a Remote Device On</option>
+                        <option value="5">Turn a Remote Device Off</option>
+                        <option value="6">Send a Custom Value to a Remote Device</option>
+                        <option value="7">Log Value</option>
+                        <option value="8">Send Email Alert</option>
+                        <option value="9">Send SMS Alert</option>
+                        <option value="10">Send GET Request</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+    </fieldset>
+
+    <p id="demo"></p>
+
+    <table id="tblTasks">
+        <tr>
+            <td>
+                Minimum Range
+            </td>
+        </tr>
+    </table>
+
+    <br /><br />
+    <input type="button" value="Save" onclick="submitForm();">
+    <br><br>
+    <input type="button" value="Cancel" onclick="location.href='/index';">
+</form>
+
+<br />
+<br />
+<div>
+    <ul>
+        <li><a href="/index">Home</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+    function onEventChange() {
+
+    }
+
+    function onCommandChange() {
+        
+    }
+
+    function submitForm() {
+        if (confirm('Save changes?')) {
+            var url = '/tasks_save';
+            var params = '';
+
+            location.replace(url + params);
+        }
+    }
+
+    function populate() {
+        var text = '{ "employees" : [' +
+            '{ "firstName":"John" , "lastName":"Doe" },' +
+            '{ "firstName":"Anna" , "lastName":"Smith" },' +
+            '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+        var obj2 = JSON.parse(text);
+        document.getElementById("demo").innerHTML = obj2.employees[1].firstName + " " + obj2.employees[1].lastName;
+
+        var json = '{ "tasks" : [' +
+            '{ "firstName":"John" , "lastName":"Doe" },' +
+            '{ "firstName":"Anna" , "lastName":"Smith" },' +
+            '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+        var obj = JSON.parse(json);
+        document.getElementById("demo").innerHTML = obj.employees[1].firstName + " " + obj.employees[1].lastName;
+    }
+
+    populate();
+
+</script>
